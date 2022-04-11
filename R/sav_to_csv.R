@@ -34,7 +34,7 @@ sav_to_csv <- function(data_folder_name, db_name) {
     # create a folder to store the transformed csv format files
     dir.create(output_dir)
   } else {
-    print("'csv_format' folder already exists!")
+    warning("'csv_format' folder already exists!")
   }
 
   for (i in 1:length(tb_name)) {
