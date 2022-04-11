@@ -20,6 +20,12 @@ It can read commonly used .csv, .dta files, but not .sav (SPSS) data.
 Therefore this function can help the user to transform all sav data sets to csv data, instead of
 using 'read_sav()' function to transform every data set one by one manually.
 }
+\details{
+Assume you have a bunch of `.sav` files current working directory: "original_data/SNAC-K".
+You may want to transform them to `.csv` files so that they can be recognized by Maelstrom harmonization package.
+
+After running this function, there should be a new folder "csv_format" storing the transformed SNAC-K csv files at "original_data/SNAC-K".
+}
 \note{
 Please make sure that the `original_data` folder is in your current working directory.
 }

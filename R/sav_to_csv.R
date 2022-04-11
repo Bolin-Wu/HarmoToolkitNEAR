@@ -7,7 +7,13 @@
 #' Therefore this function can help the user to transform all sav data sets to csv data, instead of
 #' using 'read_sav()' function to transform every data set one by one manually.
 #'
+#'
 #' @note Please make sure that the `original_data` folder is in your current working directory.
+#'
+#' @details Assume you have a bunch of `.sav` files current working directory: "original_data/SNAC-K".
+#' You may want to transform them to `.csv` files so that they can be recognized by Maelstrom harmonization package.
+#'
+#' After running this function, there should be a new folder "csv_format" storing the transformed SNAC-K csv files at "original_data/SNAC-K".
 #'
 #' @param data_folder_name The name of the folder where all the data are being stored.
 #' @param db_name The name of specific database's folder, which is located in "data_folder_name".
