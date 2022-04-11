@@ -6,8 +6,10 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of `HarmoToolkitNEAR` is to reduce the repetitive work during
-harmonization, especially for data cleaning and inspecting.
+During harmonization, there are many repetitive works.
+
+The goal of creating this package is to practice the “don’t repeat
+yourself” (DRY) principle and make the harmonization more handy.
 
 ## Installation
 
