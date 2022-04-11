@@ -21,6 +21,6 @@ Therefore this function can help the user to transform all sav data sets to csv 
 using 'read_sav()' function to transform every data set one by one manually.
 }
 \examples{
-sav_to_sav("original_data","SNAC_K")
+sav_to_sav("original_data", "SNAC_K")
 
 }

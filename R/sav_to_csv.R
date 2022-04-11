@@ -12,7 +12,10 @@
 #'
 #' @return A folder called "csv_format" will be generated in every database's folder, storing all the transformed csv files.
 #'
-#' @import tools
+#' @import
+#' tools
+#' haven
+#'
 #' @examples
 #' sav_to_sav("original_data", "SNAC_K")
 #'
@@ -36,7 +39,7 @@ sav_to_csv <- function(data_folder_name, db_name) {
 
   for (i in 1:length(tb_name)) {
     # data = read_sav(paste0(data_folder_name,'/',db_name,'/',tb_name[i]))
-    data <- read_sav(file.path(db_dir, tb_name[i]))
+    data <- haven::read_sav(file.path(db_dir, tb_name[i]))
     write.csv(data, file = file.path(output_dir, paste0(clean_name[i], ".csv")), row.names = FALSE)
   }
 }
