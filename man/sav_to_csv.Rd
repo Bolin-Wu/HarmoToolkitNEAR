@@ -2,16 +2,25 @@
 % Please edit documentation in R/sav_to_csv.R
 \name{sav_to_csv}
 \alias{sav_to_csv}
-\title{Title}
+\title{Transform the SPSS data files to csv files}
 \usage{
 sav_to_csv(data_folder_name, db_name)
 }
 \arguments{
-\item{db_name}{}
+\item{data_folder_name}{The name of the folder where all the data are being stored.}
+
+\item{db_name}{The name of specific database's folder, which is located in "data_folder_name".}
 }
 \value{
-
+A folder called "csv_format" will be generated in every database's folder, storing all the transformed csv files.
 }
 \description{
-Title
+In Maelstrom harmonization package, there is a command 'mlstr_file_index_read()' to read all the study specific data sets.
+It can read commonly used .csv, .dta files, but not .sav (SPSS) data.
+Therefore this function can help the user to transform all sav data sets to csv data, instead of
+using 'read_sav()' function to transform every data set one by one manually.
+}
+\examples{
+sav_to_sav("original_data","SNAC_K")
+
 }

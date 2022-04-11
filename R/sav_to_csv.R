@@ -1,24 +1,42 @@
 
 
-#' Title
+#' Transform the SPSS data files to csv files
 #'
-#' @param data_folder_name
-#' @param db_name
+#' In Maelstrom harmonization package, there is a command 'mlstr_file_index_read()' to read all the study specific data sets.
+#' It can read commonly used .csv, .dta files, but not .sav (SPSS) data.
+#' Therefore this function can help the user to transform all sav data sets to csv data, instead of
+#' using 'read_sav()' function to transform every data set one by one manually.
 #'
-#' @return
+#' @param data_folder_name The name of the folder where all the data are being stored.
+#' @param db_name The name of specific database's folder, which is located in "data_folder_name".
+#'
+#' @return A folder called "csv_format" will be generated in every database's folder, storing all the transformed csv files.
+#'
+#' @import tools
+#' @examples
+#' sav_to_sav("original_data", "SNAC_K")
+#'
 #' @export
 #'
-#' @examples
-sav_to_csv = function(data_folder_name, db_name){
-  tb_name = list.files(path =(paste0(data_folder_name, '/',db_name)),pattern = "\\.sav$")
-  # create a folder to store the transformed csv format files
-  dir.create(path = paste0(data_folder_name,'/',db_name,'/csv_format'))
+#'
+sav_to_csv <- function(data_folder_name, db_name) {
+  # use file.path to create a file path that is compatible on different OS.
+  db_dir <- file.path(data_folder_name, db_name)
+  tb_name <- list.files(path = db_dir, pattern = "\\.sav$")
+  # get rid of .sav extension when writing the csv file
+  clean_name <- file_path_sans_ext(tb_name)
+  output_dir <- file.path(data_folder_name, db_name, "csv_format")
 
-  for (i in 1:length(tb_name)) {
-    data = read_sav(paste0(data_folder_name,'/',db_name,'/',tb_name[i]))
-    # get rid of .sav extension when writing the csv file
-    clean_name = tools::file_path_sans_ext(tb_name)
-    write.csv(data, file = paste0(data_folder_name,'/',db_name,'/csv_format/',clean_name[i],'.csv'),row.names=FALSE)
+  if (!dir.exists(output_dir)) {
+    # create a folder to store the transformed csv format files
+    dir.create(output_dir)
+  } else {
+    print("'csv_format' folder already exists!")
   }
 
+  for (i in 1:length(tb_name)) {
+    # data = read_sav(paste0(data_folder_name,'/',db_name,'/',tb_name[i]))
+    data <- read_sav(file.path(db_dir, tb_name[i]))
+    write.csv(data, file = file.path(output_dir, paste0(clean_name[i], ".csv")), row.names = FALSE)
+  }
 }
