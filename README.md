@@ -24,7 +24,10 @@ devtools::install_github("Bolin-Wu/HarmoToolkitNEAR")
 ## Example
 
 This is a basic example which shows you how to solve a common problem of
-transforming sav files to csv files:
+transforming sav files to csv files. Assume you have a bunch of `.sav`
+files current working directory: “original_data/SNAC-K”. You may want to
+transform them to `.csv` files so that they can be recognized by
+Maelstrom harmonization package.
 
 ``` r
 library(HarmoToolkitNEAR)
@@ -33,5 +36,4 @@ sav_to_csv("original_data", "SNAC-K")
 ```
 
 After running this, there should be a new folder “csv_format” storing
-the transformed SNAC-K csv files in your current working directory,
-“original_data/SNAC-K”.
+the transformed SNAC-K csv files at “original_data/SNAC-K”.
