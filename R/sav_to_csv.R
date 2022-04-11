@@ -7,6 +7,8 @@
 #' Therefore this function can help the user to transform all sav data sets to csv data, instead of
 #' using 'read_sav()' function to transform every data set one by one manually.
 #'
+#' @note Please make sure that the `original_data` folder is in your current working directory.
+#'
 #' @param data_folder_name The name of the folder where all the data are being stored.
 #' @param db_name The name of specific database's folder, which is located in "data_folder_name".
 #'

@@ -20,6 +20,9 @@ It can read commonly used .csv, .dta files, but not .sav (SPSS) data.
 Therefore this function can help the user to transform all sav data sets to csv data, instead of
 using 'read_sav()' function to transform every data set one by one manually.
 }
+\note{
+Please make sure that the `original_data` folder is in your current working directory.
+}
 \examples{
 sav_to_sav("original_data", "SNAC_K")
 
