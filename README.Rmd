@@ -39,6 +39,6 @@ library(HarmoToolkitNEAR)
 sav_to_csv("original_data", "SNAC-K")
 ```
 
-Please make sure that the folder `original_data` folder is in your current working directory.
+After running this, there should be a new folder "csv_format" storing the transformed SNAC-K csv files in your current working directory, "original_data/SNAC-K".
 
 
